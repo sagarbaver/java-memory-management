@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class CustomerRecords {
+public class CopiedCustomerRecords implements Iterable<Customer> {
 
   private Map<String, Customer> records;
 
-  public CustomerRecords() {
+  public CopiedCustomerRecords() {
     this.records = new HashMap<String, Customer>();
   }
 
@@ -17,7 +17,10 @@ public class CustomerRecords {
   }
 
   public Map<String, Customer> getCustomers() {
-    return this.records; // Escaping reference since caller can mutate the Map. E.g., clear its values.
+    return new HashMap<>(this.records);
   }
 
+  @Override public Iterator<Customer> iterator() {
+    return records.values().iterator();
+  }
 }

@@ -1,18 +1,27 @@
 package escaperef;
 
-public class Customer {
-	private String name;
+public class Customer implements CustomerReadOnly {
 
-	public String getName() {
-		return name;
-	}
+  private String name;
 
-	public Customer(String name) {
-		this.name = name;
-	}
-	
-		public String toString() {
-		return name;
-	}
-	
+  @Override public String getName() {
+    return name;
+  }
+
+  public Customer(String name) {
+    this.name = name;
+  }
+
+  public Customer(Customer oldCustomer) {
+    this.name = oldCustomer.name;
+  }
+
+  @Override public String toString() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
 }
