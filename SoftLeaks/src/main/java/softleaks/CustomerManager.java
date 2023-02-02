@@ -22,15 +22,15 @@ public class CustomerManager {
 
   public Customer getNextCustomer() {
     // should do:
-    Customer result = null;
-    synchronized (this) {
-      if (customers.size() > 0) {
-        result = customers.remove(0);
-      }
-    }
-    return result;
+    //    Customer result = null;
+    //    synchronized (this) {
+    //      if (customers.size() > 0) {
+    //        result = customers.remove(0);
+    //      }
+    //    }
+    //    return result;
 
-    //    return customers.get(0);
+    return customers.get(0);
   }
 
   public void howManyCustomers() {
